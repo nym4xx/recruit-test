@@ -1,0 +1,26 @@
+{
+  "name": "recruit",
+  "version": "1.0.0",
+  "description": "Recruit test for D-Rating",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drating/recruit-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drating/recruit-test/issues"
+  },
+  "homepage": "https://github.com/drating/recruit-test#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "lowdb": "^3.0.0",
+    "sqlite3": "^5.0.2"
+  }
+}
