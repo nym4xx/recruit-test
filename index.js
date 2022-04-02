@@ -1,11 +1,21 @@
 
+import 'dotenv/config'
 import express from 'express'
+import cors from 'cors'
+
 const app = express()
 import routes from './routes/index.js'
 
+app.use(cors({
+    methods: ['GET']
+}))
 app.use(routes)
 
-app.listen(3000, () => {
+const port = process.env.PORT || 3000
+const server_address = process.env.SERVER_ADDRESS || '127.0.0.1'
 
-    console.log("Listening to port 3000")
+
+app.listen(port, server_address, () => {
+
+    console.log(`Listening to port ${port} on ${server_address}`)
 })

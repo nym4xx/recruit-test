@@ -1,30 +1,31 @@
-
 import { Content } from '../models/content.js'
+import fetch  from 'node-fetch'
 
 // Get
-export const getContent = async (req, res) => {
-    console.log("Get contents")
-    const contents = await Content.findAll()
-    res.send(contents)
+export const getContent = async (req, res, next) => {
+    const contents =  Content.findAll()
+        .then(data => {
+            res.json(data)
+        })
+        .catch(err => {
+            next(err)
+        })
 }
 
-/**
- * This function seems useless but is useful for this company
- * don't forget why your are reading this code
- */
-async function getDummyData() {
-    const data = ['data_one', 'data_two']
-    data.forEach(d => {
-        db.set(d)
-    })
-    console.log(await db.getAll())
-}
 
 /**
  * This function gets a remote object from following url :
  * https://jsonplaceholder.typicode.com/todos/1
  * This method should only return title and completed
  */
-async function getWebContent() {
-    throw new Error('not implemented yet')
+export const getWebContent = async (req, res, next) => {
+    
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(json => {
+            res.json({title: json.title, completed: json.completed})
+        })
+        .catch(err => {
+            next(err)
+        })
 }

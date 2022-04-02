@@ -1,8 +1,8 @@
 import db from './index.js'
 
 class ContentModel {
-    findAll() {
-        return db.getAll()
+    async findAll() {
+        return await db.getAll()
     }
 }
 
