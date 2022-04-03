@@ -7,7 +7,7 @@ const app = express()
 import routes from './routes/index.js'
 
 app.use(cors({
-    methods: ['GET']
+    origin: 'https://jsonplaceholder.typicode.com'
 }))
 app.use(routes)
 
